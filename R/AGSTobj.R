@@ -1,0 +1,1 @@
+AGSTobj <- function(x, ...) UseMethod("AGSTobj")

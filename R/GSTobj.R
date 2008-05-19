@@ -1,0 +1,1 @@
+GSTobj <- function(x, ...) UseMethod("GSTobj")

@@ -1,0 +1,61 @@
+\name{plan.GST}
+\alias{plan.GST}
+\title{ Plans a group sequential trial (GST) }
+\description{
+  Plans a group sequential trial (\code{GST})
+}
+\usage{
+plan.GST(K, t = (1:K)/K, Imax=NULL, SF, phi, alpha, delta=NULL, pow=NULL, compute.alab = TRUE, compute.als = TRUE)
+}
+\arguments{
+  \item{K}{ number of stages }
+  \item{t}{ vector with the cumulative information fraction (default: (1:K)/K) }
+  \item{Imax}{ maximum information number (default: NULL)}
+  \item{SF}{ spending function (for details see below)}
+  \item{phi}{ parameter of spending function when SF=3 or 4 (See below) }
+  \item{alpha}{ alpha (type I error rate) }
+  \item{delta}{ effect size (alternative)(default: NULL)}
+  \item{pow}{ power (default: NULL)}
+  \item{compute.alab}{ specify if alpha-absorbing parameter values should be calculated (default: TRUE) }
+  \item{compute.als}{ specify if alpha-values ''spent'' at every stage should be calculated (default: TRUE) }
+}
+\details{
+  
+  The user has to specify either \code{Imax} or \code{delta} and \code{pow}. 
+  If all three items are specified, the pre-defined maximum information number is newly calculated from the information for \code{delta} and \code{power}, and \code{Imax} is overwritten. 
+  
+  \code{SF} defines the spending function.
+  \tabular{ll}{ 
+    \code{SF} = \tab 1 O'Brien and Fleming type spending function of Lan and DeMets (1983)\cr
+    \code{SF} = \tab 2 Pocock type spending function of Lan and DeMets (1983)\cr
+    \code{SF} = \tab 3 Power family (\eqn{c_\alpha* t^\phi}); \code{phi} must be greater than 0\cr
+    \code{SF} = \tab 4 Hwang-Shih-DeCani family; \eqn{(1-e^{-\phi t})/(1-e^{-\phi})}, where \code{phi} cannot be 0\cr
+  }
+}
+\value{
+  \code{plan.GST} returns an object of the \code{class} \code{GSTobj}.
+  An object of class \code{GSTobj} is a list containing the following
+  components: 
+  \item{K}{ number of stages}
+  \item{a}{ lower critical bounds of group sequential design (are currently always set to -8)}
+  \item{b}{ upper critical bounds of group sequential design}
+  \item{t}{ vector with cumulative information fraction}
+  \item{al}{ alpha (type I error rate)}
+  \item{SF}{ spending function}
+  \item{phi}{ parameter of spending function when SF=3 or 4 (See below)}
+  \item{Imax}{ maximum information number}
+  \item{delta}{ effect size used for planning the primary trial}
+}
+\references{ 
+  Brannath, W, Mehta, CR, Posch, M (2008) ''Exact confidence bounds following
+  adaptive group sequential tests'', \emph{Biometrics} accepted.
+ }
+\author{ Niklas Hack \email{niklas.hack@meduniwien.ac.at} and Werner Brannath \email{werner.brannath@meduniwien.ac.at} }
+\seealso{ \code{\link{GSTobj}}, \code{\link{print.GSTobj}}, \code{\link{plot.GSTobj}}}
+\examples{
+##The following plans an O'Brien and Flaming group sequential design (GSD) 
+##with 4 stages and equally spaced looks.
+
+pT=plan.GST(K=4,SF=1,phi=0,alpha=0.025,delta=6,pow=0.8,compute.alab=TRUE,compute.als=TRUE)
+}
+\keyword{methods}

@@ -1,0 +1,33 @@
+\name{cer}
+\alias{cer}
+\title{ Conditional type I error rate (also called conditional rejection probability) }
+\description{
+  Calculates the conditional type I error rate of a GSD
+}
+\usage{
+cer(pT, iD)
+}
+\arguments{
+  \item{pT}{ object of the \code{class} \code{GSTobj}; primary trial design }
+  \item{iD}{ interim data; a list with the variables \code{T} and \code{z}; list(T = stage of interim analysis, z = interim z-statistic)}
+}
+\value{
+  \code{cer} returns the conditional type I error rate
+  }
+\references{ Mueller, HH, Schaefer, H (2001) ''Adaptive group sequential design for clinical
+trials: Combining the advantages of adaptive and of classical group sequential
+approaches'', \emph{Biometrics}, 57, 886-891. 
+}
+\author{ Niklas Hack \email{niklas.hack@meduniwien.ac.at} and Werner Brannath \email{werner.brannath@meduniwien.ac.at} }
+\seealso{ \code{\link{plan.GST}} }
+\examples{
+
+##The following calculates the conditional type I error rate 
+##under the null hypotesis after an adaptation at the second stage 
+##of the primary trial. 
+
+pT=plan.GST(K=4,SF=1,phi=0,alpha=0.025,delta=6,pow=0.8,compute.alab=TRUE,compute.als=TRUE)
+
+cer(pT=pT,iD=list(T=2, z=1.09))
+}
+\keyword{methods}

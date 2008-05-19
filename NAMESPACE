@@ -1,0 +1,36 @@
+## Some imports of standard functions
+#importFrom(seqmon,seqmon)
+importFrom(ldbounds,bounds)
+
+## We need to export all functions the user is allowed to call,
+## including generics that are defined in our package.
+
+## Hint: Using only one function or class per line allows easy sorting
+## in most editors, and you can comment out single functions, e.g.,
+## for debugging
+
+useDynLib(AGSDest, mainf)
+
+
+export( 
+        adapt,
+        plan.GST,
+        seqconfint,
+        pvalue,
+        cer,
+        GSTobj,
+        AGSTobj,
+        as.GST,
+        as.AGST,
+        typeIerr
+)
+
+
+S3method(print, GSTobj)
+S3method(print, AGSTobj)
+S3method(plot, GSTobj)
+S3method(plot, AGSTobj)
+S3method(summary, GSTobj)
+S3method(summary, AGSTobj)
+S3method(print,summary.GSTobj)
+S3method(print,summary.AGSTobj)

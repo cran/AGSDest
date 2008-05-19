@@ -11,6 +11,7 @@ error=0;
 
 if(is.null(level)){
   level=pT$al
+  theta_1=NULL;
   }
 else{theta_1<-comp.alab(GSD=list(a=pT$a,b=pT$b,t=pT$t,al=level,Imax=pT$Imax))
     }
@@ -28,7 +29,9 @@ if(is.null(pT$t)){print("pT$t is missing");error=1}
 else t_1 <- pT$t*pT$Imax
 
 if(is.null(pT$alab)){print("pT$alab is missing");error=1}
-else theta_1<-pT$alab
+else {
+	if(is.null(theta_1))theta_1<-pT$alab
+}
 
 k_2<-length(sT$a);
 if(is.null(sT$a)){print("sT$a is missing");error=1}

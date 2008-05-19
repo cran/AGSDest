@@ -380,7 +380,6 @@ pT_obj alloc_seqmon_obj(pT_obj pT,int size_i){
 //output:             pU_last    probability of crossing the boundaries
 
 double seqmon(double *a,double *b,double *t,int k,double theta){
-
   int c=1;
   int interval=500;
   var M=alloc_var(interval);
@@ -782,13 +781,6 @@ double sword(double theta,int k,pT_obj pT,double x){
                }
 }
 
-
-
-
-
-
-
-
 /******************************************************************************/
 //The function testint calculates if the tested intervals is rejected, accepted
 //or that there is no decision possible.
@@ -832,19 +824,21 @@ H_list testint(H_list H,pT_obj pT,iD_obj iD,sT_obj sT){
 //****************************************************************************
 //parameter values so small that we can neglect rejection boundaries from the
 //first K-1 stages
+
+
+
     if(H.hu==pT.bonf_algl){
        //qnorm inverse cumulative distribution functions.
        //For details see GNU Scientific Library
        H.b1=H.b2=qnorm(1-pT.level,0,1,1,0)+H.hu*sqrt(pT.t[last]);
        if(!H.B1)H.B1=B(H.hu,pT,iD,H.b1);
-      if(H.p2<=H.B1){H.test=2;}
+     if(H.p2<=H.B1){H.test=2;}
       else{
            if(H.p2>H.B1+H.Au)H.test=1;
            else H.test=0;
            }
       return H;
       }
-
 //****************************************************************************
 //parameter values not small enough that we can neglect rejection boundaries
     else {
@@ -908,17 +902,20 @@ for(i=0;i<100;i++){
 //step (S1)
 if(!check_a){
     //case (a)
+//Rprintf("case a1: %f, <= %f + %f",H.p2,H.Al,H.B2);
     if(H.p2<=H.Al+H.B2){
                         H.test=2;//reject interval
                         check_a=1;
                         break;
                         }
     //case (b)
+//Rprintf("case b1");
     if(H.p2>H.Al+H.B1){
                             check_a=1;//exclude case (a) and pass
                                       //directly to (S2)
                             }
     //case (c)
+//Rprintf("case c1");
     if(H.Al+H.B2<H.p2 && H.p2<=H.Al+H.B1){
                             check_a=0;//Without excluding case (a), pass
                                       //directly to (S2)
@@ -927,12 +924,14 @@ if(!check_a){
 //step (S2)
 if(!check_b){
          //case (a)
+//Rprintf("case a2");
          if(H.p2>H.Au+H.B1){
                             check_b=1;
                             H.test=1;//accept the interval
                             break;
                             }
          //case (b)
+//Rprintf("case b2");
          if(H.Al+H.B1<H.p2 && H.p2<=H.Au+H.B2){//refine interval
                            H.test=0;
                            check_b=1;
@@ -1086,7 +1085,6 @@ for(i=0;i<pT.k-1;i++){
         }
 
 //******************************************************************************
-
 
 for(i=start;i>=0;i--){
 

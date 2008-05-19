@@ -43,6 +43,11 @@ seqconfint(object, type = "b", level = NULL)
   \item{cb.r}{ repeated confidence bound}
   \item{cb.so}{ confidence bound based on the stage-wise ordering}
 
+  If the \code{level} is set to 0.5, the calculated point estimates are:
+
+  \item{est.mu}{ Median unbiased point estimate, based on the stage-wise ordering}
+  \item{est.cons}{Flexible, but conservative repeated point estimate}
+
 }
 \note{
 The stage-wise adjusted confidence interval can only be calculated at the stage where the trial stops and is only valid if the stopping rule is met.

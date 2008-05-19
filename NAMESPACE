@@ -22,7 +22,8 @@ export(
         AGSTobj,
         as.GST,
         as.AGST,
-        typeIerr
+        typeIerr,
+	cp
 )
 
 

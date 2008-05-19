@@ -12,7 +12,7 @@
 GSTobj(x, ...)
 \method{print}{GSTobj}(x, ...)
 \method{plot}{GSTobj}(x,main="GSD",print.pdf=FALSE, ...)
-\method{summary}{GSTobj}(object,ctype="b",ptype="b",etype="b",overwrite=FALSE,...)
+\method{summary}{GSTobj}(object,ctype="b",ptype="b",etype="a",overwrite=FALSE,...)
 \method{print}{summary.GSTobj}(x, ...)
 }
 \arguments{
@@ -22,7 +22,7 @@ GSTobj(x, ...)
   \item{print.pdf}{ option; if TRUE a pdf file is created. Instead of setting print.pdf to TRUE, the user can specify a character string giving the name or the path of the file.}
   \item{ctype}{ confidence type: repeated "r", stage-wise ordering "so", both "b" or none "n" (default: "b")}
   \item{ptype}{ p-value type: repeated "r", stage-wise ordering "so", both "b" or none "n" (default: "b")}
-  \item{etype}{ point estimate: maximum likelihood "ml", median unbiased "mu", both "b" or none "n" (default: "b")}
+  \item{etype}{ point estimate: maximum likelihood "ml", median unbiased "mu", all "a" or none "n" (default: "a")}
   \item{overwrite}{ option; if TRUE all old values are deleted and new values are calculated (default: FALSE) }
   \item{\dots}{ additional arguments. }
 }
@@ -62,7 +62,8 @@ GSTobj(x, ...)
     \tabular{ll}{
     \code{"ml"}\tab maximum likelihood estimate (ignoring the sequential nature of the design)\cr
     \code{"mu"}\tab median unbiased estimate (stage-wise lower confidence bound at level 0.5) for a classical GSD\cr
-    \code{"b"}\tab both: maximum likelihood and median unbiased point estimate for a classical GSD\cr
+    \code{"cons"}\tab Conservative estimate (repeated lower confidence bound at level 0.5) for a classical GSD\cr
+    \code{"a"}\tab all: maximum likelihood, median unbiased and conservative point estimate for a classical GSD\cr
     \code{"n"}\tab No point estimate is calculated\cr                                                                                                             
     }
   
@@ -70,11 +71,12 @@ GSTobj(x, ...)
   \tabular{ll}{
   \code{est.ml}\tab Maximum likelihood estimate\cr
   \code{est.mu}\tab Median unbiased estimate\cr
+  \code{est.cons}\tab Conservative estimate\cr
   }
   
   The stage-wise adjusted confidence interval and p-value and the median unbiased point estimate can only be calculated at the stage where the trial stops and is only valid if the stopping rule is met.
 
-  The repeated confidence interval and repeated p-value and maximum likelihood estimate can be calculated at every stage of the trial and
+  The repeated confidence interval and repeated p-value, conservative estimate and maximum likelihood estimate can be calculated at every stage of the trial and
   not just at the stage where the trial stops and is also valid if the stopping rule is not met. 
   For calculating the repeated confidence interval or p-value at any stage of the trial the user has to specify the outcome \code{GSDo} in the object \code{GSTobj} (see example below).
 }
@@ -92,6 +94,8 @@ GSTobj(x, ...)
 \item{est.ml}{ maximum likelihood estimate}
 
 \item{est.mu}{ median unbiased point estimate}
+
+\item{est.cons}{ conservative point estimate}
 
 \item{GSD}{}
 
@@ -116,6 +120,8 @@ GSTobj(x, ...)
   \item{Imax}{ maximum information number}
   
   \item{delta}{ effect size used for planning the primary trial}
+
+  \item{cp}{ conditionla power of the trial}
   
 \item{GSDo}{}
 

@@ -16,25 +16,30 @@ if(!is.null(x$est.ml))
 cat(paste("maximum likelihood estimate: ",round(x$est.ml,digits=3),"\n\n"))
 if(!is.null(x$est.mu))
 cat(paste("median unbiased estimate: ",round(x$est.mu,digits=3),"\n\n"))
+if(!is.null(x$est.cons))
+cat(paste("conservative estimate: ",round(x$est.cons,digits=3),"\n\n"))
 
 if(!is.null(x$GSD)){
 
 cat(paste(length(x$GSD$a)," stage group sequential design"))
-cat(paste("\n",expression(alpha),": ",round(x$GSD$al,digits=3),"\t SF: ",x$GSD$SF,"\t phi: ",x$GSD$phi,if(!is.null(x$Imax))paste("\t Imax: ",round(x$Imax,digits=2)),if(!is.null(x$delta))if(x$delta!=0)paste("\t delta: ",round(x$delta,digits=2))))
-cat(paste("\n\nBoundaries:","\t "))
-for(i in 1:length(x$GSD$a))cat(paste(round(x$GSD$b[i],digits=3),"\t "))
-cat(paste("\n           ","\t "))
-for(i in 1:length(x$GSD$a))cat(paste(round(x$GSD$a[i],digits=3),"\t "))
-cat(paste("\nInformation:","\t "))
-for(i in 1:length(x$GSD$a))cat(paste(round(x$GSD$t[i],digits=3),"\t "))
+cat(paste("\n",expression(alpha),": ",round(x$GSD$al,digits=3),"  SF: ",x$GSD$SF,"  phi: ",x$GSD$phi,if(!is.null(x$Imax))paste("  Imax: ",round(x$Imax,digits=2)),if(!is.null(x$delta))if(x$delta!=0)paste("  delta: ",round(x$delta,digits=2)),if(!is.null(x$cp))if(x$cp!=0)paste("  cp: ",round(x$cp,digits=2))))
+
+cat("\n")
+mat=matrix(c(round(x$GSD$b,digits=3),round(x$GSD$a,digits=3),round(x$GSD$t,digits=3)),ncol=length(x$GSD$t),byrow=TRUE)
+colnames(mat)=rep("",length(x$GSD$t))
+rownames(mat)=c("Upper bounds","Lower bounds","Information fraction")
+print(mat)
+
+cat("\n");
 if(!is.null(x$GSD$alab)){
-  cat(paste("\n\nals:","\t\t "))
-  for(i in 1:length(x$GSD$a))cat(paste(round(x$GSD$als[i],digits=3),"\t "))
-  cat(paste("\nalab:","\t\t "))
-  for(i in 1:length(x$GSD$a))cat(paste(round(x$GSD$alab[i],digits=3),"\t "))
+  mat_als=matrix(c(round(x$GSD$als,digits=3),round(x$GSD$alab,digits=3)),ncol=length(x$GSD$t),byrow=TRUE)
+  colnames(mat_als)=rep("",length(x$GSD$t))
+  rownames(mat_als)=c("als","alab")
+  print(mat_als)
   cat("\n\n")
   }
+
 cat("\n\ngroup sequential design outcome:\n")
-cat(paste("\n\tT: ",x$GSDo$T,"\t z: ",round(x$GSDo$z,digits=3),"\n\n"))
+cat(paste("\n\tT: ",x$GSDo$T,"  z: ",round(x$GSDo$z,digits=3),"\n\n"))
 }
 }

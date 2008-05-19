@@ -1,4 +1,4 @@
-summary.GSTobj<-function(object,ctype="b",ptype="b",etype="b",overwrite=FALSE,...){
+summary.GSTobj<-function(object,ctype="b",ptype="b",etype="a",overwrite=FALSE,...){
 
 
 if(class(object)=="GSTobj"){
@@ -67,14 +67,20 @@ if(etype!="n"){
       else object$est.mu=cb.so.gsd(object$GSD,object$GSDo,level=0.5)
     }
   }
-  if(etype=="b"){
+  if(etype=="cons"){
+    if(is.null(object$est.cons) || object$est.cons==0  || (!is.null(object$est.cons) && overwrite))
+    object$est.cons=cb.r.gsd(object$GSD,object$GSDo,level=0.5)
+  }
+
+  if(etype=="a"){
     if(is.null(object$est.mu) || object$est.mu==0   || (!is.null(object$est.mu) && overwrite)){
       if(object$GSDo$z<object$GSD$b[object$GSDo$T]){
         cat("est.mu : z < b[T]; Stopping rule NOT met. Only the maximum likelihood estimate is calculated.\n")
         }
       else object$est.mu=cb.so.gsd(object$GSD,object$GSDo,level=0.5)      
-      }
+    }
     if(is.null(object$est.ml) || object$est.ml==0   || (!is.null(object$est.ml) && overwrite))object$est.ml=object$GSDo$z/sqrt(object$GSD$t[object$GSDo$T]*object$GSD$Imax)
+    if(is.null(object$est.cons) || object$est.cons==0  || (!is.null(object$est.cons) && overwrite)) object$est.cons=cb.r.gsd(object$GSD,object$GSDo,level=0.5)
   }
 }
 

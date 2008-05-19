@@ -23,7 +23,7 @@ if((!is.null(delta) & !is.null(pow)) | !is.null(Imax) ){
       h=uniroot(function(x) seqmon(a=a[1:K],b=pbounds(h=x,pT=list(t=t,b=b,Imax=Imax),iD=list(T=0)),t=t[1:K],
                                 int=500*array(c(1),K))[2*K]-pow,c(hmin,hmax))$root          
 
-    Imax=((h/delta)^2)
+    Imax=(h/delta)^2
     }
   else delta=0
   b<-compBounds(t=(1:K)/K, t2 = Imax*t, iuse = SF, asf = NULL,
@@ -34,6 +34,7 @@ if((!is.null(delta) & !is.null(pow)) | !is.null(Imax) ){
   if(compute.alab)GSD$alab=comp.alab(GSD=GSD)          
   if(compute.als)GSD$als=comp.als(GSD=GSD)           
 
+  GSD$cp=cp(GSD)
   class(GSD)<-"GSTobj"
   return(GSD)
   }

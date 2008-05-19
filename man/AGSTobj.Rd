@@ -12,7 +12,7 @@
 AGSTobj(x, ...)
 \method{print}{AGSTobj}(x, ...)
 \method{plot}{AGSTobj}(x,main=c("primary trial","secondary trial"),print.pdf=FALSE,...)
-\method{summary}{AGSTobj}(object,ctype="b",ptype="b",etype="b",overwrite=FALSE,...)
+\method{summary}{AGSTobj}(object,ctype="b",ptype="b",etype="a",overwrite=FALSE,...)
 \method{print}{summary.AGSTobj}(x, ...)
 }
 \arguments{
@@ -22,7 +22,7 @@ AGSTobj(x, ...)
   \item{print.pdf}{ option; if TRUE a pdf file is created. Instead of setting print.pdf to TRUE, the user can specify a character string giving the name or the path of the file.}
   \item{ctype}{ confidence type: repeated "r", stage-wise ordering "so", both "b" or none "n" (default: "b")}
   \item{ptype}{ p-value type: repeated "r", stage-wise ordering "so", both "b" or none "n" (default: "b")}
-  \item{etype}{ point estimate: maximum likelihood "ml", median unbiased "mu", both "b" or none "n" (default: "b")}
+  \item{etype}{ point estimate: maximum likelihood "ml", median unbiased "mu", all "a" or none "n" (default: "a")}
   \item{overwrite}{ option; if TRUE all old values are deleted and new values are calculated (default: FALSE) }
   \item{\dots}{ additional arguments. }
 }
@@ -61,7 +61,8 @@ AGSTobj(x, ...)
     \tabular{ll}{
     \code{"ml"}\tab maximum likelihood estimate (ignoring the sequential and adaptive nature of the design)\cr
     \code{"mu"}\tab median unbiased estimate (stage-wise lower confidence bound at level 0.5) for a GSD with design adaptations\cr
-    \code{"b"}\tab both: maximum likelihood and median unbiased point estimate for a GSD with design adaptations\cr
+    \code{"cons"}\tab conservative estimate (repeated lower confidence bound at level 0.5) for a GSD with design adaptations\cr
+    \code{"a"}\tab all: maximum likelihood, median unbiased and conservative point estimate for a GSD with design adaptations\cr
     \code{"n"}\tab No point estimate is calculated\cr                                                                                                             
     }
   
@@ -69,11 +70,12 @@ AGSTobj(x, ...)
   \tabular{ll}{
   \code{est.ml}\tab Maximum likelihood estimate\cr
   \code{est.mu}\tab Median unbiased estimate\cr
+  \code{est.cons}\tab Conservative estimate\cr
   }
   
   The stage-wise adjusted confidence bound, p-value and the median unbiased point estimate can only be calculated at the stage where the trial stops and are only valid if the stopping rule is met.
 
-  The repeated confidence bound, repeated p-value and maximum likelihood estimate can be calculated at every stage of the trial and
+  The repeated confidence bound, repeated p-value, conservative estimate and maximum likelihood estimate can be calculated at every stage of the trial and
   not just at the stage where the trial stops and are also valid if the stopping rule is not met. 
   For calculating the repeated confidence bounds or p-values the user has to specify \code{sTo} (secondary trial outcome) in the object \code{AGSTobj} (see example below). If the stopping rule is not met in object \code{sTo} then stage-wise adjusted confidence bounds and p-values will not be computed while a warning message is given when their computation have erroneously been specified. 
 }
@@ -91,6 +93,8 @@ AGSTobj(x, ...)
 \item{est.ml}{ maximum likelihood estimate}
 
 \item{est.mu}{ median unbiased point estimate}
+
+\item{est.cons}{ conservative point estimate}
 
 \item{pT}{}
   
@@ -115,6 +119,8 @@ AGSTobj(x, ...)
   \item{Imax}{ maximum information number}
   
   \item{delta}{ effect size used for planning the primary trial}
+
+  \item{cp}{ conditional power for planning the primary trial}
 
 \item{iD}{}
 
@@ -141,6 +147,8 @@ AGSTobj(x, ...)
   \item{Imax}{ maximum information number}
   
   \item{delta}{ effect size used for planning the secondary trial}
+
+  \item{cp}{ conditional power for planning the secondary trial}
 
 \item{sTo}{}
 

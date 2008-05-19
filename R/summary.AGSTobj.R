@@ -1,4 +1,4 @@
-summary.AGSTobj<-function(object,ctype="b",ptype="b",etype="b",overwrite=FALSE,...){
+summary.AGSTobj<-function(object,ctype="b",ptype="b",etype="a",overwrite=FALSE,...){
 
 
 if(class(object)=="AGSTobj"){
@@ -60,7 +60,8 @@ if(ptype!="n"){
 if(etype!="n"){  
   if(etype=="ml"){
     if(is.null(object$est.ml) || object$est.ml==0  || (!is.null(object$est.ml) && overwrite)){
-      object$est.ml=(object$pT$t[object$iD$T]*object$pT$Imax*object$iD$z*sqrt(object$pT$t[object$iD$T]*object$pT$Imax)+object$sT$t[object$sTo$T]*object$sT$Imax*object$sTo$z*sqrt(object$sT$t[object$sTo$T]*object$sT$Imax))/(object$pT$t[object$iD$T]*object$pT$Imax+object$sT$t[object$sTo$T]*object$sT$Imax)
+      object$est.ml=(object$iD$z*sqrt(object$pT$t[object$iD$T]*object$pT$Imax)+object$sTo$z*sqrt(object$sT$t[object$sTo$T]*object$sT$Imax))/
+(object$pT$t[object$iD$T]*object$pT$Imax+object$sT$t[object$sTo$T]*object$sT$Imax)
     }
   }
   if(etype=="mu"){
@@ -71,7 +72,13 @@ if(etype!="n"){
       else object$est.mu=cb.so.ad(object$pT,object$iD,object$sT,object$sTo,level=0.5)
     }
   }
-  if(etype=="b"){
+  if(etype=="cons"){
+    if(is.null(object$est.cons) || object$est.cons==0   || (!is.null(object$est.cons) && overwrite)){
+      object$est.cons=cb.r.ad(object$pT,object$iD,object$sT,object$sTo,level=0.5)
+    }
+  }
+
+  if(etype=="a"){
     if(is.null(object$est.mu) || object$est.mu==0   || (!is.null(object$est.mu) && overwrite)){
       if(object$sTo$z<object$sT$b[object$sTo$T] & object$sTo$T<object$sT$K){
         cat("est.mu : z < b[T]; Stopping rule NOT met. Only the maximum likelihood estimate is calculated.\n")
@@ -79,7 +86,11 @@ if(etype!="n"){
       else object$est.mu=cb.so.ad(object$pT,object$iD,object$sT,object$sTo,level=0.5)
     }
     if(is.null(object$est.ml) || object$est.ml==0  || (!is.null(object$est.ml) && overwrite)){
-      object$est.ml=(object$pT$t[object$iD$T]*object$pT$Imax*object$iD$z*sqrt(object$pT$t[object$iD$T]*object$pT$Imax)+object$sT$t[object$sTo$T]*object$sT$Imax*object$sTo$z*sqrt(object$sT$t[object$sTo$T]*object$sT$Imax))/(object$pT$t[object$iD$T]*object$pT$Imax+object$sT$t[object$sTo$T]*object$sT$Imax)
+      object$est.ml=(object$iD$z*sqrt(object$pT$t[object$iD$T]*object$pT$Imax)+object$sTo$z*sqrt(object$sT$t[object$sTo$T]*object$sT$Imax))/
+(object$pT$t[object$iD$T]*object$pT$Imax+object$sT$t[object$sTo$T]*object$sT$Imax)
+    }
+    if(is.null(object$est.cons) || object$est.cons==0   || (!is.null(object$est.cons) && overwrite)){
+      object$est.cons=cb.r.ad(object$pT,object$iD,object$sT,object$sTo,level=0.5)
     }
   }                                                                                                 
 }

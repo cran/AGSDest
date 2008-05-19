@@ -7,7 +7,7 @@
    the initially assumed estimate \code{delta} (pT\$delta) of the primary trial.
 }
 \usage{
-adapt(pT, iD, SF, phi, cp, theta = iD$z/(pT$t[iD$T]*pT$Imax), I2min, I2max, swImax,delta=pT$delta,weight=0.5,exact = FALSE)
+adapt(pT, iD, SF, phi, cp, theta = iD$z/(pT$t[iD$T]*pT$Imax), I2min, I2max, swImax,delta=pT$delta,weight=1,warn=TRUE)
 }
 \arguments{
   \item{pT}{ object of the \code{class} \code{GSTobj}; primary trial design }
@@ -21,7 +21,7 @@ adapt(pT, iD, SF, phi, cp, theta = iD$z/(pT$t[iD$T]*pT$Imax), I2min, I2max, swIm
   \item{swImax}{ maximal incremental information per stage }
   \item{delta}{ initially assumed effect size for the primary trial (default: estimate from primary trial)}
   \item{weight}{ weight of \code{theta} when updating the effect size estimate as weighted mean of \code{theta} and \code{delta}} 
-  \item{exact}{ option if the conditional power calculation is exact. By default (exact=FALSE) a single stage secondary trial is assumed as approximation for the calculation of the maximum sample size}
+  \item{warn}{ option if warnings should be printed to the screen (default: true)}
 }
 \value{
   \code{adapt} returns an object of the \code{class} \code{GSTobj}; the design of the secondary trial. 
@@ -52,6 +52,7 @@ If an adaptation is performed \code{sT} is a list which contains the following e
     \code{als}\tab alpha-values ''spent'' at each stage of secondary group sequential design\cr
     \code{Imax}\tab maximum information number\cr
     \code{delta}\tab effect size used for planning the secondary trial\cr
+    \code{cp}\tab conditional power\cr
 }
 
 A value of \code{SF}=3 is the power family. Here, the spending function is \eqn{t^{\phi}}, 

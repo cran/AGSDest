@@ -184,6 +184,7 @@ AGSTobj(x, ...)
 \seealso{ \code{\link{AGSTobj}}, \code{\link{print.AGSTobj}}, \code{\link{plot.AGSTobj}}, \code{\link{summary.AGSTobj}}}
 \examples{
 
+\dontrun{
 pT=plan.GST(K=3,SF=4,phi=-4,alpha=0.05,delta=6,pow=0.9,compute.alab=TRUE,compute.als=TRUE)
 
 iD=list(T=1, z=1.090728)
@@ -205,11 +206,11 @@ plot(AGST)
 AGST<-summary(AGST)
 plot(AGST)
 
-##The repeated confidence interval and p-value at an earlier stage than the one where the trial stops (T=3).
+##The repeated confidence interval and p-value at an earlier stage
+##than the one where the trial stops (T=3).
 
 summary(as.AGST(pT,iD,sT,sTo=list(T=1,z=1.7)),ctype="r",ptype="r")
 
-\dontrun{
 ##If the stage-wise adjusted confidence interval is calculated at this stage, 
 ##the function returns an error message
 

@@ -73,25 +73,23 @@ following a group sequential test'', \emph{Biometrics}, 40, 797-804.
 \examples{
 ##The following calculates the repeated p-value of a group sequential trial
 
+\dontrun{
 GSD=plan.GST(K=4,SF=1,phi=0,alpha=0.025,delta=6,pow=0.8,compute.alab=TRUE,compute.als=TRUE)
 
 GST<-as.GST(GSD=GSD,GSDo=list(T=2, z=3.1))
+
 pvalue(GST,type="r")
 
-##The stage-wise adjusted p-value of a group sequential trial is calculated by
-
+##The stage-wise adjusted p-value of a group sequential trial is calculatedby
 pvalue(GST,type="so")
 
 ##The repeated p-value at the earlier stage T=1 where the trial stopping rule is not met.
-
 pvalue(as.GST(GSD,GSDo=list(T=1,z=0.7)),type="r")
 
-\dontrun{
 ##If the stage-wise adjusted p-value is calculated at this stage, 
 ##the function returns an error message
 
 pvalue(as.GST(GSD,GSDo=list(T=1,z=0.7)),type="so")
-}
 
 ##The repeated and the stage-wise adjusted p-value of a 
 ##group sequential trial after a design adaptation is calculated by
@@ -116,7 +114,6 @@ pvalue(AGST)
 
 pvalue(as.AGST(pT,iD,sT,sTo=list(T=2,z=1.7)),type="r")
 
-\dontrun{
 ##If the stage-wise adjusted p-value is calculated at this stage, 
 ##the function returns an error message
 

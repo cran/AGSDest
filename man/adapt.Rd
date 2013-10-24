@@ -7,7 +7,8 @@
    the initially assumed estimate \code{delta} (pT\$delta) of the primary trial.
 }
 \usage{
-adapt(pT, iD, SF, phi, cp, theta = iD$z/(pT$t[iD$T]*pT$Imax), I2min, I2max, swImax,delta=pT$delta,weight=1,warn=TRUE)
+adapt(pT, iD, SF, phi, cp, theta = iD$z/(pT$t[iD$T]*pT$Imax),
+      I2min, I2max, swImax,delta=pT$delta,weight=1,warn=TRUE)
 }
 \arguments{
   \item{pT}{ object of the \code{class} \code{GSTobj}; primary trial design }

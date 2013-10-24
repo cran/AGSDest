@@ -90,7 +90,8 @@ seqconfint(GST,type="r")
 
 seqconfint(GST,type="so")
 
-##The repeated confidence interval at the earlier stage T=1 where the trial stopping rule is not met.
+##The repeated confidence interval at the earlier stage T=1 where the
+##trial stopping rule is not met.
 
 seqconfint(as.GST(GSD,GSDo=list(T=1,z=0.7)),type="r")
 
@@ -114,7 +115,8 @@ sTo=list(T=2, z=2.393)
 AGST<-as.AGST(pT=pT,iD=iD,sT=sT,sTo=sTo)
 seqconfint(AGST)
 
-##The repeated confidence interval at the earlier stage T=2 where the trial stopping rule is not met.
+##The repeated confidence interval at the earlier stage T=2 where the
+##trial stopping rule is not met.
 
 seqconfint(as.AGST(pT,iD,sT,sTo=list(T=2,z=1.7)),type="r")
 

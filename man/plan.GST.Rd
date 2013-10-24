@@ -5,7 +5,8 @@
   Plans a group sequential trial (\code{GST})
 }
 \usage{
-plan.GST(K, t = (1:K)/K, Imax=NULL, SF, phi, alpha, delta=NULL, pow=NULL, compute.alab = TRUE, compute.als = TRUE)
+plan.GST(K, t = (1:K)/K, Imax=NULL, SF, phi, alpha, delta=NULL,
+         pow=NULL, compute.alab = TRUE, compute.als = TRUE)
 }
 \arguments{
   \item{K}{ number of stages }

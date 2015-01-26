@@ -52,34 +52,34 @@ seqconfint(as.GST(GSD,list(T=2,z=1.088)),type='r',level=0.5)
 
 
 ###################################################
-### code chunk number 9: vignette.Rnw:261-264
+### code chunk number 9: vignette.Rnw:257-260
 ###################################################
 GSD1<-as.GST(GSD,list(T=2,z=2.63))
-GSD1<-summary(GSD1,ctype='so',ptype='so',etype='n')
+GSD1<-summary(GSD1,ctype='so',ptype='so',etype=NULL)
 GSD1
 
 
 ###################################################
-### code chunk number 10: vignette.Rnw:378-380
+### code chunk number 10: vignette.Rnw:374-376
 ###################################################
 pT=GSD
 iD=list(T=1, z=0.731)
 
 
 ###################################################
-### code chunk number 11: vignette.Rnw:384-385
+### code chunk number 11: vignette.Rnw:380-381
 ###################################################
 cer(pT,iD)
 
 
 ###################################################
-### code chunk number 12: vignette.Rnw:389-390
+### code chunk number 12: vignette.Rnw:385-386
 ###################################################
 swImax=200/(4*20^2)
 
 
 ###################################################
-### code chunk number 13: vignette.Rnw:394-400
+### code chunk number 13: vignette.Rnw:390-396
 ###################################################
 I2min=2*swImax
 I2max=5*swImax
@@ -90,7 +90,7 @@ AGSD<-as.AGST(pT,iD,sT)
 
 
 ###################################################
-### code chunk number 14: vignette.Rnw:442-445
+### code chunk number 14: vignette.Rnw:438-441
 ###################################################
 sTo=list(T=2,z=1.532)
 AGSD<-as.AGST(pT,iD,sT,sTo)
@@ -98,40 +98,40 @@ pvalue(AGSD,type='r')
 
 
 ###################################################
-### code chunk number 15: vignette.Rnw:468-470
+### code chunk number 15: vignette.Rnw:464-466
 ###################################################
 AGSD1<-as.AGST(pT,iD,sT,list(T=3,z=2.73))
 pvalue(AGSD1,type='so')
 
 
 ###################################################
-### code chunk number 16: vignette.Rnw:494-495
+### code chunk number 16: vignette.Rnw:490-491
 ###################################################
 seqconfint(AGSD,type='r')
 
 
 ###################################################
-### code chunk number 17: vignette.Rnw:525-526
+### code chunk number 17: vignette.Rnw:521-522
 ###################################################
 seqconfint(AGSD1,type='so')
 
 
 ###################################################
-### code chunk number 18: vignette.Rnw:534-535
+### code chunk number 18: vignette.Rnw:530-531
 ###################################################
 seqconfint(AGSD1,type="so",level=0.5)
 
 
 ###################################################
-### code chunk number 19: vignette.Rnw:541-542
+### code chunk number 19: vignette.Rnw:537-538
 ###################################################
 seqconfint(AGSD,type="r",level=0.5)
 
 
 ###################################################
-### code chunk number 20: vignette.Rnw:571-573
+### code chunk number 20: vignette.Rnw:563-565
 ###################################################
-AGSD1<-summary(AGSD1,ctype='so',ptype='so',etype='a')
+AGSD1<-summary(AGSD1,ctype='so',ptype='so',etype=c('ml', 'mu', 'cons'))
 AGSD1
 
 

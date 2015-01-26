@@ -244,23 +244,19 @@ Possible value for these two parameters are:\\
 \begin{tabular}{ll}
 r:&Repeated\\
 so:&Stage-wise adjusted\\
-b:&Both, repeated and stage-wise adjusted\\
-n:&No values are calculated
 \end{tabular}\\\\
 Point estimates (etype):\\
 \begin{tabular}{ll}
 ml:& Maximum likelihood estimate (ignoring the sequential nature of the design)\\
 mu:& Median unbiased estimate (stage-wise lower confidence bound at level 0.5) for a classical GSD\\
 cons:& Conservative estimate (repeated lower confidence bound at level 0.5) for a classical GSD\\
-a:& All, maximum likelihood, median unbiased and conservative point estimate for a classical GSD\\
-n:& No point estimate is calculated
 \end{tabular}\\\\  
 If no type is specified the summary function calculates by default all values.\\\\
 We assume the example from section 2.2 where we stop at stage $T=2$ with the observed $z$-statistic $z=2.63$. With \Rfunction{as.GST} we create a new \Rfunction{GST object} and pass this object to the summary function. Now we want to calculate stage-wise adjusted confidence bound, the stage-wise adjusted $p$-values, but no point estimates. If we assign the output from the summary function to the new created \Rfunction{GST object}, the object gets extended by the calculated values.
 
 <<results=verbatim,echo=TRUE>>=
 GSD1<-as.GST(GSD,list(T=2,z=2.63))
-GSD1<-summary(GSD1,ctype='so',ptype='so',etype='n')
+GSD1<-summary(GSD1,ctype='so',ptype='so',etype=NULL)
 GSD1
 @
 
@@ -554,22 +550,18 @@ Possible value for these two parameters are:\\
 \begin{tabular}{ll}
 r:&Repeated\\
 so:&Stage-wise adjusted\\
-b:&Both, repeated and stage-wise adjusted\\
-n:&No values are calculated
 \end{tabular}\\\\
 Point estimates (etype):\\
 \begin{tabular}{ll}
 ml:& Maximum likelihood estimate (ignoring the sequential nature of the design)\\
 mu:& Median unbiased estimate (stage-wise lower confidence bound at level 0.5) for an AGSD\\
 cons:& Conservative estimate (repeated lower confidence bound at level 0.5) for an AGSD\\
-a:& All, maximum likelihood, median unbiased and conservative point estimate for an AGSD\\
-n:& No point estimate is calculated
 \end{tabular}\\\\  
 If no type is specified the summary function calculates by default all values.\\\\
 We assume the example from section 3.3.2. With \Rfunction{as.AGST} we create a new \Rfunction{AGST object} and pass this object to the \Rfunction{summary} function. Now we want to calculate the stage-wise adjusted confidence bound, the stage-wise adjusted $p$-value, and all point etsimates (maximum likelihood, median unbiased and conservative point estimate). If we assign the output from the \Rfunction{summary} function to the new created \Rfunction{AGST object}, the object gets extended by the calculated values.
 
 <<results=verbatim,echo=TRUE>>=
-AGSD1<-summary(AGSD1,ctype='so',ptype='so',etype='a')
+AGSD1<-summary(AGSD1,ctype='so',ptype='so',etype=c('ml', 'mu', 'cons'))
 AGSD1
 @
 
@@ -578,21 +570,3 @@ AGSD1
 \bibliographystyle{apalike}
 
 \end{document}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

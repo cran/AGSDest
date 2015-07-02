@@ -73,7 +73,7 @@
 #' }
 #' @keywords methods list datasets
 #'
-#' @import ldbounds
+#' @import stats graphics grDevices ldbounds
 #' @useDynLib AGSDest mainf
 #' @name AGSDest
 NULL

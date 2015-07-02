@@ -1,11 +1,11 @@
 Package: AGSDest
 Type: Package
 Title: Estimation in Adaptive Group Sequential Trials
-Version: 2.2
-Date: 2015-01-26
+Version: 2.3
+Date: 2015-07-02
 Author: Niklas Hack, Werner Brannath, Matthias Brueckner
 Maintainer: Matthias Brueckner <mwb@math.uni-bremen.de>
-Imports: ldbounds
+Imports: stats, graphics, grDevices, ldbounds
 Description: Calculation of repeated confidence intervals as well as confidence
     intervals based on the stage-wise ordering in group sequential designs and
     adaptive group sequential designs. For adaptive group sequential designs
@@ -14,6 +14,6 @@ Description: Calculation of repeated confidence intervals as well as confidence
     boundaries or more than one adaptive interim analysis.
 License: GPL (>= 2)
 NeedsCompilation: yes
-Packaged: 2015-01-29 16:01:29 UTC; mwb
+Packaged: 2015-07-02 11:19:42 UTC; mwb
 Repository: CRAN
-Date/Publication: 2015-01-29 20:37:33
+Date/Publication: 2015-07-02 18:31:25

@@ -1,4 +1,4 @@
-c1454367731b0167c319006659dc28ea *DESCRIPTION
+f793ea666a32f1f743ccae6f2fdce189 *DESCRIPTION
 7ff14446dc29d67dfe56ea87e631a5d7 *NAMESPACE
 81671b3d90608ffb811bf1874915991c *R/AGSDest.R
 652ff0e201363803d2cd7484b7bf3645 *R/AGSTobj.R
@@ -15,10 +15,10 @@ ae93b7eb6172eb4e59d1eedb131ab947 *R/pvalue.R
 89010986baa1b8c3c9c1e4206665ea57 *R/seqmon.R
 61f673407e1bc38cd94758810dc19bde *R/sword.R
 3a775a9b9345caf52be778d05b5655c3 *R/typeIerr.R
-9f9b1263460831f34f8284e1a46d000a *build/vignette.rds
+ddf68a33ab40ee1c46fb7d01ee55f121 *build/vignette.rds
 9d7183db61c835a8fa838d141b8afff3 *inst/doc/vignette.R
 dd33a9e080f2ab617575a70b313e2459 *inst/doc/vignette.Rnw
-33d27ea6837651a1f57482a0b3f96325 *inst/doc/vignette.pdf
+f9a3c0fb67d0c918e28febfcc0243197 *inst/doc/vignette.pdf
 531e43474726b86e26d3f976ce3af0b7 *man/AGSDest.Rd
 3035c07b5eda762f035cefab5f74ce91 *man/AGSTobj.Rd
 082bc91b80cd71588da69bca9ea5210a *man/GSTobj.Rd

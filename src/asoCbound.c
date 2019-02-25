@@ -8,6 +8,8 @@
 #define INF -100      //pre-defined value for minus infinity
 #define pprec 0.0001  //pre-defined value for the precision
 
+#include <Rinternals.h>
+#include <R_ext/Rdynload.h>
 
 typedef double *var;
 
@@ -89,6 +91,17 @@ double sword(double theta,int k,pT_obj pT,double x);
 
 void mainf(int *k,var a,var b,var t,var theta,double *level,int *T,double *z,
 	   int *k2,var a2,var b2,var t2,int *T2,double *zT ,double *erg);
+
+
+static R_NativePrimitiveArgType mainf_t[] = {INTSXP, REALSXP, REALSXP, REALSXP, REALSXP, REALSXP, INTSXP, REALSXP, INTSXP, REALSXP, REALSXP, REALSXP, INTSXP, REALSXP, REALSXP};
+						   
+static const R_CMethodDef cMethods[] = {{"mainf", (DL_FUNC) &mainf, 15, mainf_t}, {NULL, NULL, 0, NULL}};
+
+void R_init_AGSDest(DllInfo *dll)
+{
+  R_registerRoutines(dll, cMethods, NULL, NULL, NULL);
+  R_useDynamicSymbols(dll, TRUE);
+}
 
 
 //all variables of the H_list object are initialised to 0. For detail of the

@@ -466,12 +466,12 @@ plan.GST <- function(K, t=(1:K)/K, Imax=NULL, SF, phi, alpha, delta=NULL, pow=NU
                 if(K == 1) h <- hmax
                 else {
                     h <- uniroot(function(x) seqmon(a=a[1:K],b=pbounds(h=x,pT=list(t=t,b=b,Imax=Imax),iD=list(T=0)),t=t[1:K],
-                        int=500*array(c(1),K))[2*K]-pow,c(hmin,hmax))$root          
+                                                    int=500*array(c(1),K))[2*K]-pow,c(hmin,hmax))$root          
                 }
                 Imax <- (h/delta)^2
             }
-            else delta <- 0
-            b <- compBounds(t=(1:K)/K, t2 = Imax*t, iuse = SF, asf = NULL,
+            else delta <- 0           
+            b <- compBounds(t=t, t2 = Imax*t, iuse = SF, asf = NULL,
                             alpha = alpha, phi = phi,ztrun = 8)
 
             GSD <- list(K=K, al=alpha, t=t, SF=SF, phi=phi, a=a, b=b, Imax=Imax, delta=delta)

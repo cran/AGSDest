@@ -1,8 +1,8 @@
-f793ea666a32f1f743ccae6f2fdce189 *DESCRIPTION
-7ff14446dc29d67dfe56ea87e631a5d7 *NAMESPACE
+04dbf2a864f872c60fc458cdf2c1b732 *DESCRIPTION
+cbb31d4bf0dcf9640d988a9c989a7e9e *NAMESPACE
 81671b3d90608ffb811bf1874915991c *R/AGSDest.R
 652ff0e201363803d2cd7484b7bf3645 *R/AGSTobj.R
-244501ef7c37378037ddfb9974bfb032 *R/GSTobj.R
+b9c8ccb95272467409fabece9569fdfd *R/GSTobj.R
 bee946ca1c1ca7eba3e47e4704e407d0 *R/adapt.R
 3d12f822a3efc9d589530c1458005261 *R/bisearch.R
 2c2f7b25b4eca6158b0a46f50de24897 *R/cb.R
@@ -12,13 +12,13 @@ bee946ca1c1ca7eba3e47e4704e407d0 *R/adapt.R
 b0e553dafffb4476d9e3a5b03ccb2ef5 *R/pbounds.R
 ae93b7eb6172eb4e59d1eedb131ab947 *R/pvalue.R
 18a937145a3c94b0cd37d9f91ca28338 *R/seqconfint.R
-89010986baa1b8c3c9c1e4206665ea57 *R/seqmon.R
+4fef4f61ca2d6d236f82b71e82cd4281 *R/seqmon.R
 61f673407e1bc38cd94758810dc19bde *R/sword.R
 3a775a9b9345caf52be778d05b5655c3 *R/typeIerr.R
-ddf68a33ab40ee1c46fb7d01ee55f121 *build/vignette.rds
+b3e555b0ec0bc9c3ef9749065d49ad44 *build/vignette.rds
 9d7183db61c835a8fa838d141b8afff3 *inst/doc/vignette.R
 dd33a9e080f2ab617575a70b313e2459 *inst/doc/vignette.Rnw
-f9a3c0fb67d0c918e28febfcc0243197 *inst/doc/vignette.pdf
+5e355d6e4f82065fd9d02e2ce86745c9 *inst/doc/vignette.pdf
 531e43474726b86e26d3f976ce3af0b7 *man/AGSDest.Rd
 3035c07b5eda762f035cefab5f74ce91 *man/AGSTobj.Rd
 082bc91b80cd71588da69bca9ea5210a *man/GSTobj.Rd
@@ -31,7 +31,7 @@ acca8067787414437c2ae18b8d81a838 *man/cer.Rd
 6199dcd6663fcf62e469008ca6f34280 *man/pvalue.Rd
 1554fd22bdcb8de04e0a64c86093f2e3 *man/seqconfint.Rd
 6e27bdf90d97ff39198503f4785f67cf *man/typeIerr.Rd
-7d691e499e3b8b0d7755d5a7defde6b1 *src/asoCbound.c
+5cbdd27c713ee7a27c4f92f95bb870e7 *src/asoCbound.c
 b957333de4d914b64dd55642f5219f6f *vignettes/GST.pdf
 0ea1d6bd5ce8e8e79d02b500c1a32447 *vignettes/pT.pdf
 c3a06ebaf2f1413fdce0a4dfa6dabcbc *vignettes/sT.pdf

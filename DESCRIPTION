@@ -1,9 +1,9 @@
 Package: AGSDest
 Type: Package
 Title: Estimation in Adaptive Group Sequential Trials
-Version: 2.3.1
-Date: 2016-06-17
-Author: Niklas Hack, Werner Brannath, Matthias Brueckner
+Version: 2.3.2
+Date: 2019-02-24
+Author: Niklas Hack [aut, cre], Werner Brannath [aut], Matthias Brueckner [aut]
 Maintainer: Matthias Brueckner <matthias.brueckner@posteo.de>
 Imports: stats, graphics, grDevices, ldbounds
 Description: Calculation of repeated confidence intervals as well as confidence
@@ -13,7 +13,8 @@ Description: Calculation of repeated confidence intervals as well as confidence
     principle. Currently the procedures do not support the use of futility
     boundaries or more than one adaptive interim analysis.
 License: GPL (>= 2)
+RoxygenNote: 6.1.1
 NeedsCompilation: yes
-Packaged: 2016-06-17 15:48:39 UTC; mwb
+Packaged: 2019-02-25 10:19:36 UTC; mwb
 Repository: CRAN
-Date/Publication: 2016-06-17 21:12:16
+Date/Publication: 2019-02-25 10:50:04 UTC

@@ -125,7 +125,7 @@ seqconfint <- function(object, type=c("r", "so"), level=NULL)
 {
     res <- list()
     
-    if(class(object) == "GSTobj") {
+    if(inherits(object, "GSTobj")) {
         if(is.null(level)) level <- object$GSD$al
 
         if("r" %in% type) {
@@ -144,7 +144,7 @@ seqconfint <- function(object, type=c("r", "so"), level=NULL)
         }
     }
     
-    if(class(object) == "AGSTobj") {
+    if(inherits(object, "AGSTobj")) {
         if(is.null(level)) level <- object$pT$al
 
         if("r" %in% type) {

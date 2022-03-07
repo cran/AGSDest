@@ -77,7 +77,7 @@ GSD object:\\
   a:& Lower critical bounds of group sequential design (are currently always set to -8)\\
   b:& Upper critical bounds of group sequential design \\
   t:& Vector with cumulative information fraction\\
-  SF:& Spending function (for details see help from \Rfunction{R-function bounds} (package: \Rfunction{ldbounds}))\\
+  SF:& Spending function (for details see help from \Rfunction{R-function ldBounds} (package: \Rfunction{ldbounds}))\\
   phi:& Parameter of spending function when SF=3 or 4\\
   alab:& Alpha-absorbing parameter values of group sequential design\\
   als:& Alpha-values ''spent'' at each stage of group sequential design\\
@@ -320,7 +320,7 @@ pT object:\\
   a:& Lower critical bounds of group sequential design (are currently always set to -8)\\
   b:& Upper critical bounds of group sequential design \\
   t:& Vector with cumulative information fraction\\
-  SF:& Spending function (for details see help from \Rfunction{R-function bounds} (package: \Rfunction{ldbounds}))\\
+  SF:& Spending function (for details see help from \Rfunction{R-function ldBounds} (package: \Rfunction{ldbounds}))\\
   phi:& Parameter of spending function when SF=3 or 4\\
   alab:& Alpha-absorbing parameter values of group sequential design\\
   als:& Alpha-values ''spent'' at each stage of group sequential design\\
@@ -339,7 +339,7 @@ sT object:\\
   a:& Lower critical bounds of secondary group sequential design (are currently always set to -8)\\
   b:& Upper critical bounds of secondary group sequential design \\
   t:& Vector with cumulative information fraction\\
-  SF:& Spending function (for details see help from \Rfunction{R-function bounds} (package: \Rfunction{ldbounds}))\\
+  SF:& Spending function (for details see help from \Rfunction{R-function ldBounds} (package: \Rfunction{ldbounds}))\\
   phi:& Parameter of spending function when SF=3 or 4\\
   Imax:& Maximum information number\\
   delta:& Effect size used for planning the secondary trial

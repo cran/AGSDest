@@ -146,6 +146,6 @@ compBounds <- function(t=1:length(t2)/length(t2), t2, iuse, asf = NULL, alpha, p
                   b
               } else qnorm(1-alpha)
           }
-      } else ldbounds::bounds(t=t, t2 = t2, iuse = iuse, asf = NULL,alpha = alpha, phi = phi,ztrun = 8)$upper.bounds
+      } else ldbounds::ldBounds(t=t, t2 = t2, iuse = iuse, asf = NULL, alpha = alpha, phi = phi, ztrun = 8, sides=1)$upper.bounds
   }
 }

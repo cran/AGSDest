@@ -1,8 +1,8 @@
 Package: AGSDest
 Type: Package
 Title: Estimation in Adaptive Group Sequential Trials
-Version: 2.3.2
-Date: 2019-02-24
+Version: 2.3.4
+Date: 2022-03-07
 Author: Niklas Hack [aut, cre], Werner Brannath [aut], Matthias Brueckner [aut]
 Maintainer: Matthias Brueckner <matthias.brueckner@posteo.de>
 Imports: stats, graphics, grDevices, ldbounds
@@ -15,6 +15,6 @@ Description: Calculation of repeated confidence intervals as well as confidence
 License: GPL (>= 2)
 RoxygenNote: 6.1.1
 NeedsCompilation: yes
-Packaged: 2019-02-25 10:19:36 UTC; mwb
+Packaged: 2022-03-07 10:51:29 UTC; mwb
 Repository: CRAN
-Date/Publication: 2019-02-25 10:50:04 UTC
+Date/Publication: 2022-03-07 11:20:02 UTC

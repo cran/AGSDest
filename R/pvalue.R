@@ -189,7 +189,7 @@ pvalue <- function(object, type=c("r", "so")) {
 
     res <- list()
     
-    if(class(object) == "GSTobj") {
+    if(inherits(object, "GSTobj")) {
         GSD <- object$GSD
         GSDo <- object$GSDo       
         
@@ -206,7 +206,7 @@ pvalue <- function(object, type=c("r", "so")) {
             print("interim data missing")
             NULL
         }        
-    } else if(class(object) == "AGSTobj") {
+    } else if(inherits(object, "AGSTobj")) {
         if("r" %in% type) res$pvalue.r <- P.r.ad(h=0, object$pT, object$iD, object$sT, object$sTo)
         if("so" %in% type) {
             if(object$sTo$z < object$sT$b[object$sTo$T] && object$sTo$T < object$sT$K) {
